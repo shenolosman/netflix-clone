@@ -1,0 +1,20 @@
+import router from "express";
+import User from "../models/User";
+const route = router.Router();
+
+//Register
+route.post("/register", async (req, res) => {
+  const newUser = new User({
+    username: req.body.username,
+    email: req.body.email,
+    password: req.body.email,
+  });
+  try {
+    const user = await newUser.save();
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+module.exports = route;
