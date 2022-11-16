@@ -1,9 +1,6 @@
-import router from "express";
-import User from "../models/User";
-const route = router.Router();
-
-//Register
-route.post("/register", async (req, res) => {
+const router = require('express').Router()
+const User=require("../models/User")
+router.post("/register", async (req, res) => {
   const newUser = new User({
     username: req.body.username,
     email: req.body.email,
@@ -17,4 +14,4 @@ route.post("/register", async (req, res) => {
   }
 });
 
-module.exports = route;
+module.exports= router;
