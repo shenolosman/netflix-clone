@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Featured.scss";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import axios from "axios";
 export default function Featured({ type }) {
+  const [content, SetContent] = useState({});
+  useEffect(() => {
+    const getRandom = async () => {
+      try {
+        const res = await axios.get(`/movies/random?type=${type}`, {
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzc4MjM5ZTIyNGYzZWUxMjM2MGQxYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2ODc5MjU0MCwiZXhwIjoxNjY5MjI0NTQwfQ.JPVi9owJfK4Km7JUy_2N93Oen9zFQk0KA_eVEpDorog",
+          },
+        });
+        SetContent(res.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandom();
+  }, [type]);
   return (
     <div className="featured">
       {type && (
@@ -26,17 +44,14 @@ export default function Featured({ type }) {
         </div>
       )}
       <img
-        src="https://images.pexels.com/photos/6899260/pexels-photo-6899260.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+        src={content.img}
         alt=""
       />
       <div className="info">
-        <img src="https://cdn1.ftimg.com/images/logos/big/en_US/matrix-logo.png" alt="" width="100%" />
+        <img src={content.imgTitle} alt="" width="100%" />
 
         <span className="desc">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta dolorem aliquid ratione provident maiores, soluta
-          molestiae blanditiis quaerat sequi perspiciatis voluptatum quia libero earum! Alias accusantium soluta nulla unde quam,
-          quo veniam, magni minima ducimus numquam illo ipsam? Ipsam excepturi blanditiis eaque, corrupti veritatis sed esse odio
-          aliquid?
+          {content.desc}
         </span>
         <div className="buttons">
           <button className="play">
