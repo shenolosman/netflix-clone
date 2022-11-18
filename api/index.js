@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const routerAuth = require("./routes/auth");
 const routerUser=require("./routes/users")
 const routerMovie=require("./routes/movies")
+const routerList=require("./routes/lists")
 // const cors = require("cors");
 const app = express();
 dotenv.config();
@@ -26,6 +27,7 @@ app.get("/", (req,res) => {
 app.use("/api/auth", routerAuth); 
 app.use("/api/users", routerUser); 
 app.use("/api/movies", routerMovie); 
+app.use("/api/lists", routerList); 
 
 app.listen(8800, () => {
   console.log("backend server is running!");
