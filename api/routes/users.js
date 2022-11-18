@@ -67,7 +67,7 @@ router.get("/", verify, async (req, res) => {
   }
 });
 //Get user stats for admin
-
+//http://localhost:8800/api/users/stats
 router.get("/stats", async (req, res) => {  
     try {
       const data = await User.aggregate([
