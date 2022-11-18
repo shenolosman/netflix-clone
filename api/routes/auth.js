@@ -5,6 +5,7 @@ const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 
 //Register
+//http://localhost:8800/api/auth/register in body username,mail,pass
 router.post(
   "/register",
   // [
@@ -86,6 +87,7 @@ router.post(
 );
 
 //Login
+//http://localhost:8800/api/auth/login in body raw/json mail and pass
 router.post(
   "/login",
   // [
