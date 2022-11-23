@@ -18,6 +18,8 @@ export default function WidgetSm() {
         console.log(error);
       }
     };
+    // console.log("rendering widget sm page")
+
     getNewUsers();
   }, []);
   return (

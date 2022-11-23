@@ -26,6 +26,7 @@ export default function Home() {
       }
     };
     getStats();
+    // console.log("rendering home page")
   }, [MONTHS]);
   // console.log(userStats);
   return (

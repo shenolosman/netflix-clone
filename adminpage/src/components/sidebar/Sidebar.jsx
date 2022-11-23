@@ -14,7 +14,6 @@ import {
   PlayCircleOutline,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-import { Movie } from "@mui/icons-material";
 
 export default function Sidebar() {
   return (
