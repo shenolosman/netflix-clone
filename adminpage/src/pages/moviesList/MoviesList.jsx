@@ -25,8 +25,8 @@ export default function MovieList() {
       width: 200,
       renderCell: (params) => {
         return (
-          <div className="productListItem">
-            <img className="productListImg" src={params.row.img} alt="" />
+          <div className="movieListItem">
+            <img className="movieListImg" src={params.row.img} alt="" />
             {params.row.title}
           </div>
         );
@@ -46,10 +46,10 @@ export default function MovieList() {
             <Link
               to={{ pathname: "/movie/" + params.row._id, movie: params.row }}
             >
-              <button className="productListEdit">Edit</button>
+              <button className="movieListEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="productListDelete"
+              className="movieListDelete"
               onClick={() => handleDelete(params.row._id)}
             />
           </>
@@ -59,12 +59,12 @@ export default function MovieList() {
   ];
 
   return (
-    <div className="productList">
+    <div className="movieList">
       <DataGrid
         rows={movies}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        pageSize={10}
         checkboxSelection
         getRowId={(r) => r._id}
       />

@@ -7,8 +7,8 @@ import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import MoviesList from "./pages/moviesList/MoviesList";
-import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
+import Movie from "./pages/movie/Movie";
+import NewMovie from "./pages/newMovie/NewMovie";
 import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
@@ -39,11 +39,11 @@ function App() {
               <Route path="/movies">
                 <MoviesList />
               </Route>
-              <Route path="/product/:productId">
-                <Product />
+              <Route path="/movie/:movieId">
+                <Movie />
               </Route>
-              <Route path="/newproduct">
-                <NewProduct />
+              <Route path="/newmovie">
+                <NewMovie />
               </Route>
             </Switch>
           </div>
