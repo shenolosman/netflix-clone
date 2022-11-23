@@ -1,30 +1,74 @@
+import { useState } from "react";
 import "./newMovie.css";
 
 export default function NewMovie() {
+  const [movie, setMovie] = useState(null);
+  const [img, setImg] = useState(null);
+  const [imgTitle, setImgTitle] = useState(null);
+  const [imgSm, setImgSm] = useState(null);
+  const [trailer, setTrailer] = useState(null);
+  const [video, setVideo] = useState(null);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setMovie({ ...movie, [e.target.value]: value });
+  };
   return (
     <div className="newMovie">
       <h1 className="addMovieTitle">New Movie</h1>
       <form className="addMovieForm">
         <div className="addMovieItem">
           <label>Image</label>
-          <input type="file" id="file" />
+          <input type="file" id="img" name="img" onChange={(e) => setImg(e.target.files[0])} />
         </div>
         <div className="addMovieItem">
-          <label>Name</label>
-          <input type="text" placeholder="Apple Airpods" />
+          <label>Title Image</label>
+          <input type="file" id="imgTitle" name="imgTitle" onChange={(e) => setImgTitle(e.target.files[0])} />
         </div>
         <div className="addMovieItem">
-          <label>Stock</label>
-          <input type="text" placeholder="123" />
+          <label>Thumbnail Image</label>
+          <input type="file" id="imgSm" name="imgSm" onChange={(e) => setImgSm(e.target.files[0])} />
         </div>
         <div className="addMovieItem">
-          <label>Active</label>
-          <select name="active" id="active">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+          <label>Title</label>
+          <input type="text" placeholder="John Wick" name="title" onChange={handleChange} />
+        </div>
+        <div className="addMovieItem">
+          <label>Genre</label>
+          <input type="text" placeholder="genre" name="genre" onChange={handleChange} />
+        </div>
+        <div className="addMovieItem">
+          <label>Description</label>
+          <textarea cols="30" rows="5" name="desc" onChange={handleChange}></textarea>
+        </div>
+        <div className="addMovieItem">
+          <label>Year</label>
+          <input type="text" placeholder="year" name="year" onChange={handleChange} />
+        </div>
+        <div className="addMovieItem">
+          <label>Duration</label>
+          <input type="text" placeholder="duration" name="duration" onChange={handleChange} />
+        </div>
+        <div className="addMovieItem">
+          <label>Limit</label>
+          <input type="text" placeholder="limit" name="limit" onChange={handleChange} />
+        </div>
+        <div className="addMovieItem">
+          <label>Is Series?</label>
+          <select name="isSeries" id="isSeries" onChange={handleChange}>
+            <option value="false">No</option>
+            <option value="true">Yes</option>
           </select>
         </div>
-        <button className="addMovieButton">Create</button>
+        <div className="addMovieItem">
+          <label>TrailerImage</label>
+          <input type="file" id="trailer" name="trailer" onChange={(e) => setTrailer(e.target.files[0])} />
+        </div>
+        <div className="addMovieItem">
+          <label>Video</label>
+          <input type="file" id="video" name="video" onChange={(e) => setVideo(e.target.files[0])} />
+        </div>
+        <button className="addMovieButton">Upload New</button>
       </form>
     </div>
   );
