@@ -9,7 +9,7 @@ export default function WidgetSm() {
       const res =await axios.get("/users?new=true", {
         headers: {
           token:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzc4MjM5ZTIyNGYzZWUxMjM2MGQxYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2ODc5MjU0MCwiZXhwIjoxNjY5MjI0NTQwfQ.JPVi9owJfK4Km7JUy_2N93Oen9zFQk0KA_eVEpDorog",
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzc4MjM5ZTIyNGYzZWUxMjM2MGQxYSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2OTMyNjEyMywiZXhwIjoxNjY5NzU4MTIzfQ.QfCbSrfzwk31C_jy1vdTUvANS1quJmZ6SeTE34YkpX8",
         },
       });
       try {

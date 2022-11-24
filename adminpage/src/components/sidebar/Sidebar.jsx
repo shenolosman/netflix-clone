@@ -4,7 +4,6 @@ import {
   Timeline,
   TrendingUp,
   PermIdentity,
-  AttachMoney,
   BarChart,
   MailOutline,
   DynamicFeed,
@@ -12,6 +11,7 @@ import {
   WorkOutline,
   Report,
   PlayCircleOutline,
+  ListAltOutlined,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -53,10 +53,12 @@ export default function Sidebar() {
                 Movies
               </li>
             </Link>
+            <Link to="/lists" className="link">
             <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Transactions
+              <ListAltOutlined className="sidebarIcon" />
+              Lists
             </li>
+            </Link>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
               Reports
