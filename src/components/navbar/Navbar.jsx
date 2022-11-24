@@ -4,24 +4,33 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../authContext/AuthContext";
+import { logout } from "../../authContext/AuthActions";
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const { dispatch } = useContext(AuthContext);
   window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0 ? false : true);
     return () => (window.onscroll = null);
   };
   return (
-    <div className={isScrolled?"navbar scrolled":"navbar"}>
+    <div className={isScrolled ? "navbar scrolled" : "navbar"}>
       <div className="container">
         <div className="left">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Netflix_icon.svg/407px-Netflix_icon.svg.png"
             alt=""
           />
-          <Link to="/" className="link">Home</Link>
-          <Link to="series" className="link">Series</Link>
-          <Link to="movies" className="link">Movies</Link>
+          <Link to="/" className="link">
+            Home
+          </Link>
+          <Link to="series" className="link">
+            Series
+          </Link>
+          <Link to="movies" className="link">
+            Movies
+          </Link>
           <span>New and Popular</span>
           <span>My List</span>
         </div>
@@ -34,7 +43,7 @@ export default function Navbar() {
             <ArrowDropDownIcon className="icon" />
             <div className="options">
               <span>Settings</span>
-              <span>Logout</span>
+              <span onClick={() => dispatch(logout())}>Logout</span>
             </div>
           </div>
         </div>
