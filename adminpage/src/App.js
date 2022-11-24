@@ -14,6 +14,7 @@ import List from "./pages/list/List";
 import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
+import NewList from "./pages/newList/NewList";
 function App() {
   const { user } = useContext(AuthContext);
 
@@ -52,6 +53,9 @@ function App() {
               </Route>
               <Route path="/newmovie">
                 <NewMovie />
+              </Route>
+              <Route path="/newlist">
+                <NewList/>
               </Route>
             </Switch>
           </div>
